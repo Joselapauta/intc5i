@@ -1,0 +1,120 @@
+<div class="container mt-5">
+    <form id="formMigracion" class="p-4 shadow-sm bg-white rounded">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Fecha -->
+                <div class="form-group mb-4">
+                    <label for="fecha" class="form-label fw-bold">Fecha</label>
+                    <input type="date" class="form-control" id="fecha" required>
+                </div>
+
+                <!-- Comando conjunto -->
+                <div class="form-group mb-4">
+                    <label for="comando-conjunto" class="form-label fw-bold">Comando Conjunto</label>
+                    <select id="comando-conjunto" name="comando-conjunto" class="form-select" required>
+                        <option value="">------------</option>
+                        <option value="cc-norte">CC NORTE</option>
+                        <option value="cc-sur">CC SUR</option>
+                        <option value="cc-este">CC ESTE</option>
+                        <option value="cc-metropolitano">CC METROPOLITANO</option>
+                        <!-- Agrega más opciones de instituciones según sea necesario -->
+                    </select>
+                </div>
+
+                <!-- Institución Actuante -->
+                <div class="form-group mb-4">
+                    <label for="institucion-actuante" class="form-label fw-bold">Institución Actuante</label>
+                    <select id="institucion-actuante" name="institucion-actuante" class="form-select" required>
+                        <option value="">--------------</option>
+                        <option value="argentina">Argentina</option>
+                        <option value="boliviana">Boliviana</option>
+                        <option value="paraguaya">Paraguaya</option>
+                        <!-- Agrega más opciones de nacionalidades según sea necesario -->
+                    </select>
+                </div>
+
+
+                <!-- Cantidad Detenidos -->
+                <div class="form-group mb-4">
+                    <label for="cantidadetenido" class="form-label fw-bold">Cantidad Detenidos</label>
+                    <input type="number" id="cantidadetenido" name="cantidadetenido" class="form-control" min="1" required>
+                </div>
+
+                <!-- Operativos Realizados -->
+        <div class="form-group mb-4">
+            <label for="operativos-realizados" class="form-label fw-bold">Operativos Realizados</label>
+            <input type="number" id="operativos-realizados" name="operativos-realizados" class="form-control" min="1" required>
+        </div>
+
+        
+
+            </div>
+
+            <div class="col-md-6">
+                <!-- Nacionalidad Detenidos -->
+                <div class="form-group mb-4">
+                    <label for="nacionalidad-detenidos" class="form-label fw-bold">Nacionalidad Detenidos</label>
+                    <select id="nacionalidad-detenidos" name="nacionalidad-detenidos" class="form-select" required>
+                        <option value="">------------</option>
+                        <option value="cc-norte">CC NORTE</option>
+                        <option value="cc-sur">CC SUR</option>
+                        <option value="cc-este">CC ESTE</option>
+                        <option value="cc-metropolitano">CC METROPOLITANO</option>
+                        <!-- Agrega más opciones de instituciones según sea necesario -->
+                    </select>
+                </div>
+
+                <!-- Amenaza -->
+                <div class="form-group mb-4">
+                    <label for="amenaza" class="form-label fw-bold">Amenaza</label>
+                    <select id="amenaza" name="amenaza" class="form-select" required>
+                        <option value="">Seleccionar tipo</option>
+                        <option value="decomiso">Decomiso</option>
+                        <option value="aprehension">Aprehensión</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <!-- Eventualidad -->
+                <div class="form-group mb-4">
+                    <label for="eventualidad" class="form-label fw-bold">Eventualidad</label>
+                    <select id="eventualidad" name="eventualidad" class="form-select" required>
+                        <option value="">Seleccionar puerto o dependencia</option>
+                        <option value="puerto-buenos-aires">Puerto de Buenos Aires</option>
+                        <option value="aduana-ezeiza">Aduana de Ezeiza</option>
+                        <option value="prefectura-naval">Prefectura Naval</option>
+                        <!-- Agrega más opciones de puertos o dependencias según sea necesario -->
+                    </select>
+                </div>
+
+                <!-- Provincia -->
+                <div class="form-group mb-4">
+                    <label for="provincia" class="form-label fw-bold">Provincia</label>
+                    <select id="provincia" name="provincia" class="form-select" required>
+                        <option value="">Seleccionar provincia</option>
+                        <option value="buenos-aires">Buenos Aires</option>
+                        <option value="cordoba">Córdoba</option>
+                        <option value="santa-fe">Santa Fe</option>
+                        <!-- Agrega más opciones de provincias según sea necesario -->
+                    </select>
+                </div>
+
+                <!-- Tareas Afectadas -->
+        <div class="form-group mb-4">
+            <label for="tareasafectadas" class="form-label fw-bold">Tareas Afectadas</label>
+            <input type="number" id="tareasafectadas" name="tareasafectadas" class="form-control" min="1" required>
+        </div>
+
+        <!-- Cantidad Incautada -->
+        <div class="form-group mb-4 col-md-6">
+            <label for="cantidad-incautada" class="form-label fw-bold">Cantidad Incautada</label>
+            <input type="number" id="cantidad-incautada" name="cantidad-incautada" class="form-control" min="1" required>
+        </div>
+                
+            </div>
+        </div>
+
+        <!-- Botón de enviar -->
+        <button type="submit" class="btn btn-primary w-100">Enviar</button>
+    </form>
+</div>

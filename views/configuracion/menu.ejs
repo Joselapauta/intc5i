@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-md navbar-light shadow-sm mb-4 mb-lg-0 sidenav">
+    <!-- Menu -->
+<a class="d-xl-none d-lg-none d-md-none text-inherit fw-bold" href="#">Sub Menu</a>
+    <!-- Button -->
+<button class="navbar-toggler d-md-none icon-shape icon-sm rounded bg-primary text-light" type="button"
+    data-bs-toggle="collapse" data-bs-target="#sidenav" aria-controls="sidenav" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="fe fe-menu"></span>
+</button>
+    <!-- Collapse navbar -->
+<div class="collapse navbar-collapse" id="sidenav">
+    <div class="navbar-nav flex-column">
+        <span class="navbar-header">configuración</span>
+        <ul class="list-unstyled ms-n2 mb-0">
+                <!-- Nav item -->
+            <li class="nav-item <%= typeof data.notificaciones != 'undefined' ? 'active' : '' %>">
+                <a class="nav-link" href="/notificaciones"><i class="fe fe-bell nav-icon"></i>Notificaciones</a>
+            </li>
+                <!-- Nav item -->
+            <li class="nav-item <%= typeof data.seguridad != 'undefined' ? 'active' : '' %>">
+                <a class="nav-link" href="/seguridad"><i class="fe fe-lock nav-icon"></i>Seguridad</a>
+            </li>
+             <!-- Nav item -->
+             <li class="nav-item <%= typeof data.adminuser != 'undefined' ? 'active' : '' %>">
+                <a class="nav-link" href="/adminuser"> <i class="bi bi-person nav-icon"></i>Administrar Usuarios</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</nav>

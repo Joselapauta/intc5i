@@ -1,0 +1,131 @@
+<%- include('../partials/head') %>
+
+
+<body>
+	<!-- Page content -->
+	<%- include('../partials/nav') %>
+
+	<main>
+		<!-- Page header -->
+		<section class="py-lg-6 py-4 bg-primary">
+			<div class="container">
+				<div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-12">
+					<div>
+					<h1 class="text-white display-4 mb-0">Notificaciones</h1>
+					</div>
+				</div>
+				</div>
+			</div>
+		</section>
+		<!-- Content -->
+
+
+		<section class="pt-5 pb-5">
+			<div class="container">
+				<div class="row mt-0 mt-md-4">
+					<div class="col-lg-3 col-md-4 col-12">
+						<!-- Side navbar -->
+						<%- include('menu') %>
+					</div>
+					<!-- Content -->
+					<div class="col-lg-9 col-md-8 col-12">
+						<!-- Card -->
+						<div class="card">
+							<!-- Card header -->
+							<div class="card-header d-flex justify-content-between align-items-center">
+								<div>
+									<!-- Notification -->
+									<h3 class="mb-0">Notificaciones</h3>
+									<p class="mb-0">
+										Usted solo recibirá las notifiaciones que tenga habilitadas.
+									</p>
+								</div>
+								<div>
+									<div class="form-check form-switch">
+										<input class="form-check-input" type="checkbox" id="checkAll" checked="">
+										<label class="form-check-label" for="checkAll"></label>
+									</div>
+								</div>
+							</div>
+							<!-- Card body -->
+							<div class="card-body">
+								<div class="mb-5">
+									<h4 class="mb-0">Alertas de seguridad</h4>
+									<p>
+										Son alertas de correo relacionadas con la seguridad de la cuenta.
+									</p>
+									<!-- List group -->
+									<ul class="list-group list-group-flush">
+											<!-- List group item -->
+										<li class="list-group-item d-flex align-items-center justify-content-between px-0 py-2">
+											<div>Notifícacome si detectas alguna actividad inusual.</div>
+											<div>
+												<div class="form-check form-switch">
+													<input type="checkbox" class="form-check-input" id="switchOne" checked>
+													<label class="form-check-label" for="switchOne"></label>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div>
+									<!-- Content -->
+									<h4 class="mb-0">Cursos y Vacantes</h4>
+									<p>
+										Recibirás notificaciones relacionadas con cursos y vacantes disponibles.
+									</p>
+										<!-- List group -->
+									<ul class="list-group list-group-flush mb-4">
+											<!-- List group item -->
+										<li class="list-group-item d-flex justify-content-between px-0">
+											<div>
+												<h5 class="mb-0">Nuevas capacitaciones</h5>
+												<span class="text-body">Avísame cada vez que exista una nueva capacitación.</span>
+											</div>
+											<div>
+												<div class="form-check form-switch">
+													<input type="checkbox" class="form-check-input" id="switchSix" checked>
+													<label class="form-check-label" for="switchSix"></label>
+												</div>
+											</div>
+										</li>
+											<!-- List group item -->
+										<li class="list-group-item d-flex justify-content-between px-0">
+											<div>
+												<h5 class="mb-0">Nuevas vacantes.</h5>
+												<span class="text-body">Avísame si hay alguna nueva vacante que se adapte a mi perfil</span>
+											</div>
+											<div>
+												<div class="form-check form-switch">
+													<input type="checkbox" class="form-check-input" id="switchSeven">
+													<label class="form-check-label" for="switchSeven"></label>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+
+  	</main>
+	<!-- Footer -->
+	<!-- Footer -->
+	<%- include('../partials/footer') %>
+  
+
+
+  <!-- Scripts -->
+  <%- include('../partials/scripts') %>
+
+
+
+</body>
+
+</html>

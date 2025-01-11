@@ -1,0 +1,385 @@
+<style>
+    .body {
+        background-color: #f5f5f5;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .search-container {
+        margin-bottom: 30px;
+        background-color: #0056b3;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .table-responsive {
+        background-color: #191b27;
+        border-radius: 8px;
+        overflow-x: auto;
+        box-shadow: 0 2px 10px #fffffff3;
+    }
+
+    th {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    .resultButtons {
+        display: none;
+        margin-top: 15px;
+    }
+</style>
+
+<body>
+
+<section class="pt-5 pb-5">
+    <div class="container">
+        <div class="row mt-0 mt-md-4">
+            <div class="col-lg-12 col-md-8 col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="mb-0">Formulario de Búsqueda</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="searchForm">
+                            <div class="mb-4">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="editMesDesde" class="form-label">Mes:</label>
+                                            <select id="editMesDesde" class="form-control">
+                                                <option value="">Seleccione un mes</option>
+                                                <option value="01">Enero</option>
+                                                <option value="02">Febrero</option>
+                                                <option value="03">Marzo</option>
+                                                <option value="04">Abril</option>
+                                                <option value="05">Mayo</option>
+                                                <option value="06">Junio</option>
+                                                <option value="07">Julio</option>
+                                                <option value="08">Agosto</option>
+                                                <option value="09">Septiembre</option>
+                                                <option value="10">Octubre</option>
+                                                <option value="11">Noviembre</option>
+                                                <option value="12">Diciembre</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="editFechaDesde" class="form-label">Fecha:</label>
+                                            <input type="date" id="editFechaDesde" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="selectTipoAlerta" class="form-label">Tipo de Alerta</label>
+                                            <select class="form-select" id="selectTipoAlerta">
+                                                <option value="">Seleccionar Alerta</option>
+                                                <option value="1">Actos Delictivos</option>
+                                                <option value="2">Armas y Municiones</option>
+                                                <option value="3">Decomisos de Mercancías</option>
+                                                <option value="4">Delitos Ambientales</option>
+                                                <option value="5">Migración</option>
+                                                <option value="6">Registro Aéreo</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-end">
+                                <div class="col-md-4">
+                                    <div class="d-flex justify-content-end">
+                                        <button type="button" class="btn btn-primary" onclick="buscar()">Buscar</button>
+                                        <button type="button" class="btn btn-secondary ms-3" onclick="limpiar()">Limpiar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-striped" id="tablaResultados" style="display: none;">
+            <thead>
+                <tr>
+                    <th></th> <!-- Columna para los checkboxes -->
+                    <th>Fecha</th>
+                    <th>Institución Actuante</th>
+                    <th>Nacionalidad</th>
+                    <th>Tipo de Eventualidad</th>
+                    <th>Puerto o Dependencia</th>
+                    <th>Provincia</th>
+                    <th>Decomisos Mercancías</th>
+                    <th>Cantidad</th>
+                    <th>Medida</th>
+                    <th>Delito</th>
+                    <th>Amenaza</th>
+                    <th>Operativos Realizados</th>
+                    <th>Tareas Afectadas</th>
+                    <th>Cantidad Incautada</th>
+                    <th>Comando Conjunto</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class="resultButtons" id="resultButtons">
+        <button type="button" class="btn btn-primary" onclick="verificarCheckbox()">Editar</button>
+        <button type="button" class="btn btn-secondary ms-3" onclick="eliminar()">Eliminar</button>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="container" id="contenedormodal">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Alerta</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="modalForm">
+                        <div class="form-group">
+                            <label for="modalFecha">Fecha</label>
+                            <input type="date" class="form-control" id="modalFecha">
+                        </div>
+                        <div class="form-group">
+                            <label for="modalInstitucion">Institución Actuante</label>
+                            <input type="text" class="form-control" id="modalInstitucion">
+                        </div>
+                        <div class="form-group">
+                            <label for="modalNacionalidad">Nacionalidad</label>
+                            <input type="text" class="form-control" id="modalNacionalidad">
+                        </div>
+                        <div class="form-group">
+                            <label for="modalDecomisos">Decomisos</label>
+                            <input type="text" class="form-control" id="modalDecomisos">
+                        </div>
+                        <div class="form-group">
+                            <label for="modalCantidad">Cantidad</label>
+                            <input type="number" class="form-control" id="modalCantidad">
+                        </div>
+                        <div class="form-group">
+                            <label for="modalMedida">Medida</label>
+                            <input type="text" class="form-control" id="modalMedida">
+                        </div>
+                        <div class="form-group">
+                            <label for="modalDelito">Delito</label>
+                            <input type="text" class="form-control" id="modalDelito">
+                        </div>
+                        <div class="form-group">
+                            <label for="modalAmenaza">Amenaza</label>
+                            <input type="text" class="form-control" id="modalAmenaza">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" onclick="guardarCambios()">Guardar cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Datos de ejemplo para las alertas
+var alertas = [
+    {
+        fecha: "2024-01-15",
+        institucion: "Policía Nacional",
+        nacionalidad: "Colombiana",
+        tipo_eventualidad: "1", // Actos Delictivos
+        puerto: "Puerto de Cartagena",
+        provincia: "Bolívar",
+        decomisos: "Drogas",
+        cantidad: 100,
+        medida: "kg",
+        delito: "Tráfico de drogas",
+        amenaza: "Alto",
+        operativos: "Operativo 1",
+        tareas_afectadas: "Seguridad",
+        cantidad_incautada: 50,
+        comando_conjunto: "Comando Conjunto Caribe"
+    },
+    {
+        fecha: "2024-02-10",
+        institucion: "Guardia Costera",
+        nacionalidad: "Venezolana",
+        tipo_eventualidad: "2", // Armas y Municiones
+        puerto: "Puerto de La Guaira",
+        provincia: "La Guaira",
+        decomisos: "Armas",
+        cantidad: 20,
+        medida: "unidades",
+        delito: "Contrabando de armas",
+        amenaza: "Media",
+        operativos: "Operativo 2",
+        tareas_afectadas: "Control de fronteras",
+        cantidad_incautada: 15,
+        comando_conjunto: "Comando Conjunto Andes"
+    },
+    {
+        fecha: "2024-02-10",
+        institucion: "Guardia Terrestre",
+        nacionalidad: "Dominicano",
+        tipo_eventualidad: "3", // decomisos
+        puerto: "Puerto de La Guaira",
+        provincia: "La Guaira",
+        decomisos: "Armas",
+        cantidad: 200,
+        medida: "gramos",
+        delito: "Contrabando de armas",
+        amenaza: "Media",
+        operativos: "Operativo 2",
+        tareas_afectadas: "Control de fronteras",
+        cantidad_incautada: 15,
+        comando_conjunto: "Comando Conjunto Andes"
+    }
+];
+
+// Variable para almacenar el índice de la alerta seleccionada
+var alertaSeleccionada = null;
+
+// Función para mostrar los resultados de búsqueda en la tabla
+function mostrarResultados(resultados) {
+    var tbody = $("#tablaResultados tbody");
+    tbody.empty(); // Limpiar la tabla antes de mostrar nuevos resultados
+    
+    resultados.forEach(function(alerta, index) {
+        var tr = $("<tr>");
+        tr.append($("<td>").html('<input type="checkbox" class="form-check-input" id="check' + index + '" data-index="'+ index +'">')); // Agregar checkbox
+        tr.append($("<td>").text(alerta.fecha));
+        tr.append($("<td>").text(alerta.institucion));
+        tr.append($("<td>").text(alerta.nacionalidad));
+        tr.append($("<td>").text(alerta.tipo_eventualidad));
+        tr.append($("<td>").text(alerta.puerto));
+        tr.append($("<td>").text(alerta.provincia));
+        tr.append($("<td>").text(alerta.decomisos));
+        tr.append($("<td>").text(alerta.cantidad));
+        tr.append($("<td>").text(alerta.medida));
+        tr.append($("<td>").text(alerta.delito));
+        tr.append($("<td>").text(alerta.amenaza));
+        tr.append($("<td>").text(alerta.operativos));
+        tr.append($("<td>").text(alerta.tareas_afectadas));
+        tr.append($("<td>").text(alerta.cantidad_incautada));
+        tr.append($("<td>").text(alerta.comando_conjunto));
+        tbody.append(tr);
+    });
+
+    $("#tablaResultados").show(); // Mostrar la tabla
+    $("#resultButtons").show(); // Mostrar los botones de acción
+}
+
+// Función para verificar si algún checkbox está seleccionado y abrir el modal
+function verificarCheckbox() {
+    var seleccionados = $("input.form-check-input:checked");
+    if (seleccionados.length > 0) {
+        // Obtener el índice del primer elemento seleccionado
+        alertaSeleccionada = seleccionados.first().data('index');
+        var alerta = alertas[alertaSeleccionada];
+
+        // Llenar el formulario del modal con la información de la alerta seleccionada
+        $("#modalFecha").val(alerta.fecha);
+        $("#modalInstitucion").val(alerta.institucion);
+        $("#modalNacionalidad").val(alerta.nacionalidad);
+        $("#modalDecomisos").val(alerta.decomisos);
+        $("#modalCantidad").val(alerta.cantidad);
+        $("#modalMedida").val(alerta.medida);
+        $("#modalDelito").val(alerta.delito);
+        $("#modalAmenaza").val(alerta.amenaza);
+        
+        // Mostrar el modal
+        $('#exampleModal').modal('show');
+    } else {
+        alert("Por favor, selecciona una alerta para editar.");
+    }
+}
+
+// Función para guardar los cambios realizados en el modal
+function guardarCambios() {
+    if (alertaSeleccionada !== null) {
+        // Actualizar los datos de la alerta seleccionada con los valores del modal
+        var alerta = alertas[alertaSeleccionada];
+        alerta.fecha = $("#modalFecha").val();
+        alerta.institucion = $("#modalInstitucion").val();
+        alerta.nacionalidad = $("#modalNacionalidad").val();
+        alerta.decomisos = $("#modalDecomisos").val();
+        alerta.cantidad = $("#modalCantidad").val();
+        alerta.medida = $("#modalMedida").val();
+        alerta.delito = $("#modalDelito").val();
+        alerta.amenaza = $("#modalAmenaza").val();
+
+        // Cerrar el modal
+        $('#exampleModal').modal('hide');
+
+        // Volver a mostrar los resultados actualizados
+        mostrarResultados(alertas);
+    }
+}
+
+// Función para buscar alertas según los criterios seleccionados
+function buscar() {
+    var mesDesde = $("#editMesDesde").val();
+    var fechaDesde = $("#editFechaDesde").val();
+    var tipoAlerta = $("#selectTipoAlerta").val();
+
+    var resultadosFiltrados = alertas.filter(function(alerta) {
+        var cumpleMes = mesDesde === "" || alerta.fecha.split("-")[1] === mesDesde;
+        var cumpleFecha = fechaDesde === "" || alerta.fecha === fechaDesde;
+
+        return cumpleMes && cumpleFecha;
+    });
+
+    // Mostrar los resultados en la tabla
+    mostrarResultados(resultadosFiltrados);
+}
+
+// Función para limpiar los filtros y ocultar los resultados
+function limpiar() {
+    $("#editMesDesde").val("");
+    $("#editFechaDesde").val("");
+    $("#selectTipoAlerta").val("");
+
+    $("#tablaResultados").hide();
+    $("#resultButtons").hide();
+}
+
+// Función para eliminar los registros seleccionados
+function eliminar() {
+    var seleccionados = $("input.form-check-input:checked");
+    if (seleccionados.length > 0) {
+        seleccionados.each(function() {
+            var index = $(this).data('index');
+            alertas.splice(index, 1); // Eliminar la alerta del array
+        });
+
+        // Mostrar el mensaje de eliminación
+        alert("Se han eliminado los registros seleccionados.");
+
+        // Volver a mostrar los resultados actualizados
+        mostrarResultados(alertas);
+    } else {
+        alert("No se ha seleccionado ningún registro para eliminar.");
+    }
+}
+</script>
+
+</body>

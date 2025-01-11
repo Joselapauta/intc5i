@@ -1,0 +1,160 @@
+<%- include('../partials/head') %>
+
+
+<body>
+	<!-- Page content -->
+	<%- include('../partials/nav') %>
+
+	<main>
+		<!-- Page header -->
+		<section class="py-lg-6 py-4 bg-primary">
+			<div class="container">
+				<div class="row">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-12">
+					<div>
+					<h1 class="text-white display-4 mb-0">Seguridad</h1>
+					</div>
+				</div>
+				</div>
+			</div>
+		</section>
+		<!-- Content -->
+
+
+		<section class="pt-5 pb-5">
+			<div class="container">
+				
+	
+		<!-- Content -->
+	
+		<div class="row mt-0 mt-md-4">
+					<div class="col-lg-3 col-md-4 col-12">
+
+						<!-- Side navbar -->
+						<%- include('menu') %>
+
+					</div>
+					<!-- Content -->
+					<div class="col-lg-9 col-md-8 col-12">
+						<!-- Card -->
+						<div class="card">
+							<!-- Card header -->
+							<div class="card-header">
+								<h3 class="mb-0">Seguridad</h3>
+								<p class="mb-0">
+									Edite las configuraciones de seguridad de su cuenta. 
+								</p>
+							</div>
+							<!-- Card body -->
+							<div class="card-body">
+								<h4 class="mb-0">Correo Electrónico</h4>
+								<p>
+									Tu cuenta de correo Electrónico actual es 
+									<span class="text-success">fmunoz@gmail.com</span>
+								</p>
+								<form class="row">
+									<div class="mb-3 col-lg-6 col-md-12 col-12">
+										<label class="form-label" for="email">Nuevo correo electrónico</label>
+										<input id="email" type="email" name="email" class="form-control" placeholder="" required>
+										<button type="submit" class="btn btn-primary mt-2">Actualizar Correo</button>
+									</div>
+								</form>
+								<hr class="my-5">
+								<div>
+									<h4 class="mb-0">Cambiar Contraseña</h4>
+									<p>
+										Realize el cambio de contraseña en este apartado, proporcionando una contraseña que cumpla con los paramtros solicitados.
+									</p>
+									<!-- Form -->
+									<form class="row">
+										<div class="col-lg-6 col-md-12 col-12">
+												<!-- Current password -->
+											<div class="mb-3">
+												<label class="form-label" for="currentpassword">Contraseña actual</label>
+												<input id="currentpassword" type="password" name="currentpassword" class="form-control"
+													placeholder="" required>
+											</div>
+												<!-- New password -->
+											<div class="mb-3 password-field">
+												<label class="form-label" for="newpassword">Nueva contraseña</label>
+												<input id="newpassword" type="password" name="newpassword" class="form-control mb-2"
+													placeholder="" required>
+												<div class="row align-items-center g-0">
+													<div class="col-6">
+														<span data-bs-toggle="tooltip" data-placement="right" title="La contraseña debe contener números y letras minúsculas y mayúsculas">
+															Nivel de contraseña
+															<i class="fe fe-help-circle ms-1"></i>
+														</span>
+													</div>
+												</div>
+											</div>
+											<div class="mb-3">
+													<!-- Confirm new password -->
+												<label class="form-label" for="confirmpassword">Confirmar nueva contraseña</label>
+												<input id="confirmpassword" type="password" name="confirmpassword" class="form-control mb-2"
+													placeholder="" required>
+											</div>
+												<!-- Button -->
+											<button type="submit" class="btn btn-primary">
+												Cambiar Contraseña
+											</button>
+											<div class="col-6"></div>
+										</div>
+									</form>
+								</div>
+
+								<hr class="my-5">
+								<div>
+									<h4 class="mb-0">Doble Factor de Autenticación (2FA)</h4>
+									<p>
+										Agregue un grado más de seguridad a su cuenta con la autenticación en dos pasos.
+									</p>
+									<!-- Form -->
+									<div class="mb-5 d-md-flex">
+										<!-- facebook -->
+										<div>
+											<i class="mdi mdi-at h1 me-3   color-facebook"></i>
+										</div>
+										<div class="mt-1">
+											<h4 class="mb-0">Correo Electrónico</h4>
+											<p>Recibirá un código temporal a su correo electrónico cada vez que inicie sesión</p>
+											<a href="#" class="btn btn-outline-secondary btn-sm">Activar</a>
+										</div>
+									</div>
+									<!-- Google -->
+									<div class="mb-5 d-md-flex border-top pt-5">
+		
+										<div>
+											<i class="mdi mdi-lock-check-outline color-google h1 me-3  "></i>
+										</div>
+										<div class="mt-1">
+											<h4 class="mb-0">Autenticator</h4>
+											<p>Obtén un código temporal con una app como Google Autenticator, Microsoft Autenticator u otra.</p>
+											<a href="#" class="btn btn-outline-secondary btn-sm">Activar</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+
+  	</main>
+	<!-- Footer -->
+	<!-- Footer -->
+	<%- include('../partials/footer') %>
+  
+
+
+  <!-- Scripts -->
+  <%- include('../partials/scripts') %>
+
+
+
+</body>
+
+</html>

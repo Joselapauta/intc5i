@@ -1,0 +1,121 @@
+<div class="container mt-5">
+    <form action="" id="formMigracion" class="p-4 shadow-sm bg-white rounded">
+        <input type="text" hidden>
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Fecha -->
+                <div class="form-group mb-4">
+                    <label for="fecha" class="form-label fw-bold">Fecha</label>
+                    <input type="date" class="form-control" id="fecha" required>
+                </div>
+
+                <!-- Institución Actuante -->
+                <div class="form-group mb-4">
+                    <label for="institucion-actuante" class="form-label fw-bold">Institución Actuante</label>
+                    <select id="institucion-actuante" name="institucion-actuante" class="form-select" required>
+                        <option value="">Seleccionar institución</option>
+                        <option value="1">Migracion</option>
+                        <option value="2">Policia Nacional</option>
+                        <option value="3">Ejercito</option>
+                        <!-- Agrega más opciones de instituciones según sea necesario -->
+                    </select>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="paisprocedencia" class="form-label fw-bold">Pais de Procedencia</label>
+                    <select id="paisprocedencia" name="paisprocedencia" class="form-select" required>
+                        <option value="">Seleccionar Pais</option>
+                        <option value="1">Haiti</option>
+                        <option value="2">Venezuela</option>
+                        <option value="3">Estados Unidos</option>
+                        <option value="4">España</option>
+                        <option value="5">Panama</option>
+                        <!-- Agrega más opciones de instituciones según sea necesario -->
+                    </select>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="ComandoConjunto" class="form-label fw-bold">Comando Conjunto</label>
+                    <select id="ComandoConjunto" name="ComandoConjunto" class="form-select" required>
+                        <option value="">Seleccionar nacionalidad</option>
+                        <option value="1">CC ESTE</option>
+                        <option value="2">CC Norte</option>
+                        <option value="3">CC Oeste</option>
+                        <!-- Agrega más opciones de nacionalidades según sea necesario -->
+                    </select>
+                </div>
+
+                <!--
+                <div class="form-group mb-4">
+                    <label for="Puerto" class="form-label fw-bold">Puerto</label>
+                    <input type="text" id="Puerto" name="Puerto" class="form-control" min="1" required>
+                </div>
+                     -->
+
+                <!-- Nacionalidad de Detenidos -->
+                <div class="form-group mb-4">
+                    <label for="nacionalidad-detenidos" class="form-label fw-bold">Nacionalidad de Detenidos</label>
+                    <select id="nacionalidad-detenidos" name="nacionalidad-detenidos" class="form-select" required>
+                        <option value="">Seleccionar nacionalidad</option>
+                        <option value="1">Haitiana</option>
+                        <option value="2">Colombiana</option>
+                        <option value="3">venezolana</option>
+                        <!-- Agrega más opciones de nacionalidades según sea necesario -->
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <!-- Tipo de Eventualidad -->
+                <div class="form-group mb-4">
+                    <label for="tipo-eventualidad" class="form-label fw-bold">Tipo de Eventualidad</label>
+                    <input type="text" id="tipo-eventualidad" name="tipo-eventualidad" class="form-control" min="1" required>
+                </div>
+
+                <!-- Puerto o Dependencia -->
+                <div class="form-group mb-4">
+                    <label for="Amenaza" class="form-label fw-bold">Amenaza</label>
+                    <input type="text" id="Amenaza" name="Amenaza" class="form-control" min="1" >
+                </div>
+
+                <!-- Provincia -->
+                <div class="form-group mb-4">
+                    <label for="provincia" class="form-label fw-bold">Provincia</label>
+                    <select id="provincia" name="provincia" class="form-select" required>
+                        <option value="">Seleccionar provincia</option>
+                        <option value="1">Santo Domingo</option>
+                        <option value="2">Santiago</option>
+                        <option value="3">Dajabon</option>
+                        <!-- Agrega más opciones de provincias según sea necesario -->
+                    </select>
+                </div>
+
+                 <!-- Decomisos de Mercancías 
+        <div class="form-group mb-4  ">
+            <label for="decomisos-mercancias" class="form-label fw-bold">Decomisos de Mercancías</label>
+            <select id="decomisos-mercancias" name="decomisos-mercancias" class="form-select" required>
+                <option value="">Seleccionar mercancía</option>
+                <option value="drogas">Drogas</option>
+                <option value="armas">Armas</option>
+                <option value="cigarrillos">Cigarrillos</option>
+               
+            </select>
+        </div>
+    -->
+        <!-- Cantidad -->
+        <div class="form-group mb-4 col-md-6">
+            <label for="cantidad" class="form-label fw-bold">Cantidad</label>
+            <input type="number" id="cantidad" name="cantidad" class="form-control" min="1" required>
+        </div>
+
+    </div>
+        </div>
+
+        <div id='alertMessage' class='mt-3'>
+                                                
+        </div>
+
+        <!-- Botón de enviar -->
+        <button type="submit" class="btn btn-primary w-100">Enviar</button>
+    </form>
+</div>

@@ -1,0 +1,103 @@
+<div class="container mt-5">
+    <form id="formularioMercancia" class="p-4 shadow-sm bg-white rounded">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Input para la fecha -->
+                <div class="form-group mb-4">
+                    <label for="fecha" class="form-label fw-bold">Fecha</label>
+                    <input type="date" id="fecha" name="fecha" class="form-control" required>
+                </div>
+
+                <!-- Input para ingresar la cantidad -->
+                <div class="form-group mb-4">
+                    <label for="Producto" class="form-label fw-bold">Producto</label>
+                    <input type="text" id="Producto" name="Producto" class="form-control" min="1" required>
+                </div>
+
+                <!-- Dropdown SELECCIONAR MERCANCÍA -->
+                <div class="form-group mb-4">
+                    <label for="mercancia" class="form-label fw-bold">Seleccionar Mercancía</label>
+                    <select id="mercancia" name="mercancia" class="form-select" required>
+                        <option value="">Seleccionar mercancía</option>
+                        <option value="drogas">Drogas</option>
+                        <option value="armas">Armas</option>
+                        <option value="cigarrillos">Cigarrillos</option>
+                        <!-- Agrega más opciones de mercancías según sea necesario -->
+                    </select>
+                </div>
+
+                <!-- Dropdown SELECCIONAR PROVINCIA -->
+                <div class="form-group mb-4">
+                    <label for="provincia" class="form-label fw-bold">Seleccionar Provincia</label>
+                    <select id="provincia" name="provincia" class="form-select" required>
+                        <option value="">Seleccionar provincia</option>
+                        <option value="buenos-aires">Buenos Aires</option>
+                        <option value="cordoba">Córdoba</option>
+                        <option value="santa-fe">Santa Fe</option>
+                        <!-- Agrega más opciones de provincias según sea necesario -->
+                    </select>
+                </div>
+
+                
+
+            </div>
+
+            <div class="col-md-6">
+                <!-- Dropdown SELECCIONAR MEDIDA -->
+                <div class="form-group mb-4">
+                    <label for="medida" class="form-label fw-bold">Seleccionar Medida</label>
+                    <select id="medida" name="medida" class="form-select" required>
+                        <option value="">Seleccionar medida</option>
+                        <option value="gramo">Gramo</option>
+                        <option value="kilogramo">Kilogramo</option>
+                        <option value="libra">Libra</option>
+                        <option value="unidad">Unidad</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group mb-4">
+                    <label for="Institucion" class="form-label fw-bold">Institucion</label>
+                    <select id="Institucion" name="Institucion" class="form-select" required>
+                        <option value="">Seleccionar Institucion</option>
+                        <option value="drogas">Drogas</option>
+                        <option value="armas">Armas</option>
+                        <option value="cigarrillos">Cigarrillos</option>
+                        <!-- Agrega más opciones de mercancías según sea necesario -->
+                    </select>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="Provincia" class="form-label fw-bold">Provincia</label>
+                    <select id="Provincia" name="Provincia" class="form-select" required>
+                        <option value="">Seleccionar Provincia</option>
+                        <option value="drogas">Drogas</option>
+                        <option value="armas">Armas</option>
+                        <option value="cigarrillos">Cigarrillos</option>
+                        <!-- Agrega más opciones de mercancías según sea necesario -->
+                    </select>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="ComandoConjunto" class="form-label fw-bold">Comando Conjunto</label>
+                    <select id="ComandoConjunto" name="ComandoConjunto" class="form-select" required>
+                        <option value="">Seleccionar Comando Conjunto</option>
+                        <option value="drogas">Drogas</option>
+                        <option value="armas">Armas</option>
+                        <option value="cigarrillos">Cigarrillos</option>
+                        <!-- Agrega más opciones de mercancías según sea necesario -->
+                    </select>
+                </div>
+
+                <!-- Input para ingresar la cantidad -->
+                <div class="form-group mb-4">
+                    <label for="cantidad" class="form-label fw-bold">Cantidad</label>
+                    <input type="number" id="cantidad" name="cantidad" class="form-control" min="1" required>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botón de enviar -->
+        <button type="submit" class="btn btn-primary w-100">Enviar</button>
+    </form>
+</div>

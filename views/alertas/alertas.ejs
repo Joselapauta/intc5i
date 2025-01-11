@@ -1,0 +1,173 @@
+<%- include('../partials/head') %>
+
+    <body>
+        <!-- Page content -->
+        <%- include('../partials/nav') %>
+            <main>
+                <!-- Page header -->
+                <section class="py-lg-6 py-4 bg-primary">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+                                <div>
+                                    <h1 class="text-white display-4 mb-0">&nbsp;</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Content -->
+
+                <!-- Formulario de búsqueda -->
+                <%- include('../buscar/busqueda') %>
+
+                    <section class="pt-5 pb-5">
+                        <div class="container">
+                            <div class="row mt-0 mt-md-4">
+                                <!-- Content -->
+                                <div class="col-lg-12 col-md-8 col-12">
+                                    <!-- Card -->
+                                    <div class="card">
+                                        <!-- Card header -->
+                                        <div class="card-header">
+                                            <h3 class="mb-0">Registro de incidencias</h3>
+                                        </div>
+
+                                        <!-- Card body -->
+                                        <div class="card-body">
+                                            <!-- Selección de alerta -->
+                                            <h4 class="menudesplegablealerta">SELECCIONAR ALERTA</h4>
+                                            <div class="menualertas">
+                                                <button class="btn btn-secondary dropdown-toggle" type="button"
+                                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                                    id="dropdownMenuButtonDelito" style="width: 200px;">
+                                                    -------
+                                                </button>
+                                                <ul class="dropdown-menu dropdown-menu-dark">
+                                                    <li><a class="dropdown-item" href="#"
+                                                            data-text="Migración">Migración</a></li>
+                                                    <li><a class="dropdown-item" href="#"
+                                                            data-text="Decomisos">Decomisos</a></li>
+                                                    <li><a class="dropdown-item" href="#"
+                                                            data-text="Actos Delictivos">Actos Delictivos</a></li>
+                                                    <li><a class="dropdown-item" href="#"
+                                                            data-text="Registro Aéreo">Registro Aéreo</a></li>
+                                                    <li><a class="dropdown-item" href="#"
+                                                            data-text="Delitos Ambientales">Delitos Ambientales</a></li>
+                                                    <li><a class="dropdown-item" href="#"
+                                                            data-text="Armas y Municiones">Armas y Municiones</a></li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="row">
+                                                <!-- Formulario para migracion -->
+                                                <div id="formMigracion" style="display: none;">
+                                                    <%- include('../formulariomigracion/formmigracion') %>
+                                                        <hr class="my-5">
+                                                       
+                                                </div>
+
+                                                <!-- Formulario para decomiso -->
+                                                <div id="formdecomiso" style="display: none;">
+                                                    <%- include('../decomisos/decomisos') %>
+                                                        <hr class="my-5">
+                                                </div>
+
+                                                <!-- Formulario para armas y municiones -->
+                                                <div id="formarmasymuniciones" style="display: none;">
+                                                    <%- include('../armasymuniciones/armasymuniciones') %>
+                                                        <hr class="my-5">
+                                                </div>
+
+                                                <!-- Formulario para actos delictivos -->
+                                                <div id="formactosdelictivos" style="display: none;">
+                                                    <%- include('../actosDelictivos/actosDelictivos') %>
+                                                        <hr class="my-5">
+                                                </div>
+
+                                                <!-- Formulario para delitos ambientales -->
+                                                <div id="formdelitosambientales" style="display: none;">
+                                                    <%- include('../delitosambientales/delitosambientales') %>
+                                                        <hr class="my-5">
+                                                </div>
+
+                                                <!-- Formulario para registro aereo -->
+                                                <div id="formregistroaereo" style="display: none;">
+                                                    <%- include('../registroaereo/registroaereo') %>
+                                                        <hr class="my-5">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </section>
+            </main>
+
+            <!-- Footer -->
+            <%- include('../partials/footer') %>
+
+                <!-- Scripts -->
+                <%- include('../partials/scripts') %>
+
+                    <script>
+                        // Función para manejar la selección de alertas
+                        document.querySelectorAll('.menualertas .dropdown-item').forEach(item => {
+                            item.addEventListener('click', function (event) {
+                                event.preventDefault(); // Evita que la página se recargue
+                                const selectedText = this.getAttribute('data-text');
+                                document.getElementById('dropdownMenuButtonDelito').textContent = selectedText;
+
+                                // Mostrar solo el formulario seleccionado
+                                const forms = {
+                                    'Migración': 'formMigracion',
+                                    'Decomisos': 'formdecomiso',
+                                    'Armas y Municiones': 'formarmasymuniciones',
+                                    'Actos Delictivos': 'formactosdelictivos',
+                                    'Delitos Ambientales': 'formdelitosambientales',
+                                    'Registro Aéreo': 'formregistroaereo'
+                                };
+
+                                Object.values(forms).forEach(formId => {
+                                    document.getElementById(formId).style.display = 'none';
+                                });
+
+                                // Obtener el formulario correspondiente al texto seleccionado
+                                const selectedFormId = forms[selectedText];
+
+                                // Si existe el formulario, mostrarlo
+                                if (selectedFormId) {
+                                    document.getElementById(selectedFormId).style.display = 'block';
+                                }
+
+                            });
+                        });
+
+                        // Función para manejar la selección en los menús desplegables del formulario
+                        function initializeDropdown(menuClass, buttonId) {
+                            document.querySelectorAll(`${menuClass} .dropdown-item`).forEach(item => {
+                                item.addEventListener('click', function (event) {
+                                    event.preventDefault(); // Evita que la página se suba
+                                    // Eliminar la clase 'active' de todos los elementos
+                                    document.querySelectorAll(`${menuClass} .dropdown-item`).forEach(i => i.classList.remove('active'));
+                                    // Agregar la clase 'active' al elemento seleccionado
+                                    this.classList.add('active');
+                                    // Obtener el texto del elemento seleccionado
+                                    const selectedText = this.getAttribute('data-text');
+                                    // Actualizar el texto del botón del menú
+                                    document.getElementById(buttonId).textContent = selectedText;
+                                });
+                            });
+                        }
+
+
+
+
+
+                    </script>
+
+    </body>
+
+    </html>

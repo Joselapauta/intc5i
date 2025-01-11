@@ -1,0 +1,123 @@
+<div class="container mt-5">
+    <form id="formMigracion" class="p-4 shadow-sm bg-white rounded">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Fecha -->
+                <div class="form-group mb-4">
+                    <label for="fecha" class="form-label fw-bold">Fecha</label>
+                    <input type="date" class="form-control" id="fecha" required>
+                </div>
+
+                <!-- tipo de arma -->
+                <div class="form-group mb-4">
+                    <label for="tipodearma" class="form-label fw-bold">Tipo de Arma</label>
+                    <select id="tipodearma" name="tipodearma" class="form-select" required>
+                        <option value="">------------</option>
+                        <option value="cc-norte">CC NORTE</option>
+                        <option value="cc-sur">CC SUR</option>
+                        <option value="cc-este">CC ESTE</option>
+                        <option value="cc-metropolitano">CC METROPOLITANO</option>
+                        <!-- Agrega más opciones de instituciones según sea necesario -->
+                    </select>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="provinciadelito" class="form-label fw-bold">Provincia</label>
+                    <select id="provinciadelito" name="provinciadelito" class="form-select" required>
+                        <option value="">Seleccionar provincia</option>
+                        <option value="buenos-aires">Buenos Aires</option>
+                        <option value="cordoba">Córdoba</option>
+                        <option value="santa-fe">Santa Fe</option>
+                        <!-- Agrega más opciones de provincias según sea necesario -->
+                    </select>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="Institucion" class="form-label fw-bold">Institucion</label>
+                    <select id="Institucion" name="Institucion" class="form-select" required>
+                        <option value="">Seleccionar Institucion</option>
+                        <option value="buenos-aires">Buenos Aires</option>
+                        <option value="cordoba">Córdoba</option>
+                        <option value="santa-fe">Santa Fe</option>
+                        <!-- Agrega más opciones de provincias según sea necesario -->
+                    </select>
+                </div>
+
+                <!-- tipo de municion -->
+                <div class="form-group mb-4">
+                    <label for="tipodemunicion" class="form-label fw-bold">Tipo de Munición</label>
+                    <select id="tipodemunicion" name="tipodemunicion" class="form-select" required>
+                        <option value="">--------------</option>
+                        <option value="argentina">Argentina</option>
+                        <option value="boliviana">Boliviana</option>
+                        <option value="paraguaya">Paraguaya</option>
+                        <!-- Agrega más opciones de nacionalidades según sea necesario -->
+                    </select>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="Total" class="form-label fw-bold">Total</label>
+                    <input type="number" id="Total" name="Total" class="form-control" min="1" required>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <!-- aeropuerto -->
+                <div class="form-group mb-4">
+                    <label for="Aeropuerto" class="form-label fw-bold">Aeropuerto</label>
+                    <select id="Aeropuerto" name="Aeropuerto" class="form-select" required>
+                        <option value="">Seleccionar tipo</option>
+                        <option value="decomiso">Decomiso</option>
+                        <option value="aprehension">Aprehensión</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="Pistolas" class="form-label fw-bold">Pistolas</label>
+                    <input type="number" id="Pistolas" name="Pistolas" class="form-control" min="1" required>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label for="Rifles" class="form-label fw-bold">Rifles</label>
+                    <input type="number" id="Rifles" name="Rifles" class="form-control" min="1" required>
+                </div>
+
+
+
+                <div class="form-group mb-4">
+                    <label for="Sector" class="form-label fw-bold">Sector</label>
+                    <select id="Sector" name="Sector" class="form-select" required>
+                        <option value="">Seleccionar Sector</option>
+                        <option value="buenos-aires">Buenos Aires</option>
+                        <option value="cordoba">Córdoba</option>
+                        <option value="santa-fe">Santa Fe</option>
+                        <!-- Agrega más opciones de provincias según sea necesario -->
+                    </select>
+                </div>
+
+                <!-- puerto -->
+                <div class="form-group mb-4">
+                    <label for="puerto" class="form-label fw-bold">Puerto</label>
+                    <select id="puerto" name="puerto" class="form-select" required>
+                        <option value="">Seleccionar puerto o dependencia</option>
+                        <option value="puerto-buenos-aires">Puerto de Buenos Aires</option>
+                        <option value="aduana-ezeiza">Aduana de Ezeiza</option>
+                        <option value="prefectura-naval">Prefectura Naval</option>
+                        <!-- Agrega más opciones de puertos o dependencias según sea necesario -->
+                    </select>
+                </div>
+
+                <!-- Cantidad -->
+                
+            </div>
+        </div>
+
+        <!-- Botón de enviar -->
+        <div class="row">
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary w-100">Enviar</button>
+            </div>
+        </div>
+    </form>
+</div>
